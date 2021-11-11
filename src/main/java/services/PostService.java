@@ -6,7 +6,7 @@ import models.Post;
 
 public interface PostService {
     String addPost(Post post) throws PostAlreadyExistException;
-    String updatePost();
+    Post updatePost(Post post,int id) throws PostNotFoundException;
     Post findPostById(int id) throws PostNotFoundException;
     String deletePost();
 

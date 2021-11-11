@@ -17,15 +17,25 @@ public class PostServiceImpl implements PostService{
         if (post1 != null) {
             throw new PostAlreadyExistException("Post Already exist");
         }
+        postRepository.save(post);
         return "Post added Successfully";
     }
 
 
     @Override
-    public String updatePost() {
-
-
-        return null;
+    public Post updatePost(Post post, int id) throws PostNotFoundException {
+       Post post1 = findPostById(id);
+        System.out.println(post1.getId());
+       if(post1.getTitle() != null){
+           post1.setTitle(post.getTitle());
+       }
+       if(post1.getAuthor() != null){
+           post1.setAuthor(post.getAuthor());
+       }
+       if(post1.getDescription() != null){
+           post1.setDescription(post.getDescription());
+       }
+       return post1;
     }
 
     @Override
@@ -34,6 +44,7 @@ public class PostServiceImpl implements PostService{
         if(foundPost == null){
             throw new PostNotFoundException("Post does not exist");
         }
+
         return foundPost;
     }
 

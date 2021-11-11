@@ -32,6 +32,7 @@ public class PostRepository {
     public Post findPostById(int id) {
         for (Post post: posts){
             if(post.getId() == id){
+                System.out.println(post.getId());
                 return post;
             }
         }

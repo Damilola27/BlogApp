@@ -17,6 +17,7 @@ public class Post {
         this.title = title;
         this.description = description;
         this.author = author;
+        dateCreated = LocalDate.now();
         idGenerator++;
         id = idGenerator;
     }
