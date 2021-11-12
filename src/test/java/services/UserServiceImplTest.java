@@ -26,6 +26,7 @@ class UserServiceImplTest {
         } catch (UserAlreadyExistException e) {
             e.getLocalizedMessage();
         }
+
     }
 
     @Test

@@ -6,6 +6,8 @@ import models.Post;
 import models.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import repositories.PostRepository;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -75,13 +77,16 @@ class PostServiceImplTest {
 
 
     }
+
     @Test
-    void testThatPostCanBeDeleted(){
+    void testThatPostCanBeDeleted() throws PostAlreadyExistException {
         Post post1 = new Post("Pc", "First secondary school", new User());
+        postService.addPost(post1);
+        assertEquals(1, post1.getId());
         try {
-            postService.addPost(post1);
-            assertEquals(1, post1.getId());
-        } catch (PostAlreadyExistException e) {
+            postService.deletePost(1);
+            assertEquals(0, postService.count());
+        } catch (PostNotFoundException e) {
             e.getLocalizedMessage();
         }
 

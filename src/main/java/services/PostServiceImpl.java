@@ -49,7 +49,17 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public String deletePost() {
-        return null;
+    public String deletePost(int id) throws PostNotFoundException {
+        Post post = postRepository.findPostById(id);
+        if(post == null){
+            throw new PostNotFoundException("post does not exist");
+        }
+        postRepository.delete(post);
+        return "Post has been deleted";
+    }
+
+    @Override
+    public int count() {
+        return postRepository.count();
     }
 }
