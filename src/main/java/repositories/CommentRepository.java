@@ -17,4 +17,8 @@ public class CommentRepository {
     public int count() {
         return comments.size();
     }
+
+    public void remove(Comment comment) {
+        comments.remove(comment);
+    }
 }

@@ -18,6 +18,15 @@ class CommentRepositoryTest {
     void testThatCommentCanBeSaved(){
         Comment comment = new Comment("Nice post",new User());
         commentRepository.add(comment);
-        assertEquals(2,commentRepository.count());
+        assertEquals(1,commentRepository.count());
+    }
+    @Test
+    void testThatCommentCanBBeRemoved() {
+        Comment comment = new Comment("Nice post", new User());
+        commentRepository.add(comment);
+        commentRepository.add(comment);
+        assertEquals(2, commentRepository.count());
+        commentRepository.remove(comment);
+        assertEquals(1,commentRepository.count());
     }
 }
