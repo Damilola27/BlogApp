@@ -21,12 +21,35 @@ class CommentRepositoryTest {
         assertEquals(1,commentRepository.count());
     }
     @Test
-    void testThatCommentCanBBeRemoved() {
+    void testThatCommentCanBDeleted() {
         Comment comment = new Comment("Nice post", new User());
         commentRepository.add(comment);
         commentRepository.add(comment);
         assertEquals(2, commentRepository.count());
-        commentRepository.remove(comment);
+        commentRepository.delete(comment);
         assertEquals(1,commentRepository.count());
     }
+    @Test
+    void testThatCommentCanBeDeletedById(){
+        Comment comment = new Comment("Nice post", new User());
+        commentRepository.add(comment);
+        assertEquals(1, commentRepository.count());
+        commentRepository.delete(1);
+        assertEquals(0,commentRepository.count());
+        //todo complete this task;
+
+    }
+    @Test
+    void testThatCommentCanBeFoundById(){
+        Comment comment = new Comment("Nice post", new User());
+        commentRepository.add(comment);
+        commentRepository.add(comment);
+        assertEquals(2, commentRepository.count());
+       commentRepository.findCommentById(1);
+    }
+
+
 }
+
+
+

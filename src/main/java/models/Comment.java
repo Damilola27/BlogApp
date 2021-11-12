@@ -10,6 +10,7 @@ public class Comment {
     private User author;
     private LocalDate dateCreated;
     private LocalTime time;
+    private static int idGenerator;
 
 
     public Comment(String content, User author) {
@@ -17,6 +18,8 @@ public class Comment {
         this.author = author;
         dateCreated =LocalDate.now();
         time = LocalTime.now();
+        idGenerator++;
+        id = idGenerator;
     }
 
     public String getContent() {

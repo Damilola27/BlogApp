@@ -18,7 +18,25 @@ public class CommentRepository {
         return comments.size();
     }
 
-    public void remove(Comment comment) {
+    public void delete(Comment comment) {
         comments.remove(comment);
+    }
+
+    public Comment findCommentById(int id) {
+        for(Comment comment: comments){
+            if(comment.getId() == id){
+                return comment;
+            }
+        }
+        return  null;
+    }
+
+    public void delete(int id) {
+        for(Comment comment: comments){
+            if(comment.getId() ==id){
+                comments.remove(comment);
+                break;
+            }
+        }
     }
 }
