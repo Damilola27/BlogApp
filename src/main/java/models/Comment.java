@@ -22,6 +22,10 @@ public class Comment {
         id = idGenerator;
     }
 
+    public Comment() {
+
+    }
+
     public String getContent() {
         return content;
     }

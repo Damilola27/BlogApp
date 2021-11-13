@@ -26,7 +26,7 @@ public class PostServiceImpl implements PostService{
     @Override
     public Post updatePost(Post post, int id) throws PostNotFoundException {
        Post post1 = findPostById(id);
-        System.out.println(post1.getId());
+
        if(post1.getTitle() != null){
            post1.setTitle(post.getTitle());
        }
