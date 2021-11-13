@@ -8,6 +8,7 @@ import repositories.PostRepository;
 public class PostServiceImpl implements PostService{
     PostRepository postRepository;
     public PostServiceImpl() {
+
         postRepository = new PostRepository();
     }
 
